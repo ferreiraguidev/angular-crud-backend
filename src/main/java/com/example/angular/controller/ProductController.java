@@ -4,6 +4,7 @@ package com.example.angular.controller;
 import com.example.angular.controller.dto.ProductPostReqBody;
 import com.example.angular.controller.dto.ProductPutReqBody;
 import com.example.angular.persistence.Product;
+import com.example.angular.repository.ProductRepository;
 import com.example.angular.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +19,12 @@ import static org.springframework.http.HttpStatus.*;
 public class ProductController {
 
     private final ProductService productService;
+    private final ProductRepository productRepository;
 
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService,
+                             ProductRepository productRepository) {
         this.productService = productService;
+        this.productRepository = productRepository;
     }
 
     @ResponseStatus(OK)
