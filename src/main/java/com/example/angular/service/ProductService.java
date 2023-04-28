@@ -52,6 +52,11 @@ public class ProductService {
                 .orElseThrow(() -> new NullPointerException("Customize exception!"));
     }
 
+    public Product findByName(final String name) {
+        return productRepository.findByName(name);
+
+    }
+
     public void delete(final Long id) {
         productRepository.deleteById(id);
     }
